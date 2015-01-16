@@ -1,9 +1,9 @@
 var config = {
 	feedbackLayer: {
-		url: "http://maps.raleighnc.gov/arcgis/rest/services/Planning/UDO_Feedback/FeatureServer/0"
+		url: "http://mapstest.raleighnc.gov/arcgis/rest/services/Planning/UDO_Feedback/FeatureServer/0"
 	},
 	udoService: {
-		url: "http://maps.raleighnc.gov/arcgis/rest/services/Planning/UDO/MapServer",
+		url: "http://mapstest.raleighnc.gov/arcgis/rest/services/Planning/UDO/MapServer",
 		layerIds: [0]
 	},
 	parcels: {

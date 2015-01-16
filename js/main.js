@@ -750,7 +750,7 @@ function getZoningCases (point, element) {
 		$(".browser-warning").hide();
 	});
 	$(".glyphicon-question-sign").tooltip();
-	$(".feedback").tooltip();
+	//$(".feedback").tooltip();
 	current = L.map('currentMap', {minZoom: 10}).setView([35.81889, -78.64447], 11);
 	proposed = L.map('proposedMap', {minZoom: 10}).setView([35.81889, -78.64447], 11);
 

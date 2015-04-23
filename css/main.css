@@ -1,3 +1,7 @@
+.dropdown-toggle {
+	visibility: hidden;
+}
+
 .warning-ie8 {
 	height: 300px;
 	position:absolute;

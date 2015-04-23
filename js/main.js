@@ -1,9 +1,9 @@
 var config = {
 	feedbackLayer: {
-		url: "http://mapstest.raleighnc.gov/arcgis/rest/services/Planning/UDO_Feedback/FeatureServer/0"
+		url: "http://maps.raleighnc.gov/arcgis/rest/services/Planning/UDO_Feedback/FeatureServer/0"
 	},
 	udoService: {
-		url: "http://mapstest.raleighnc.gov/arcgis/rest/services/Planning/UDO/MapServer",
+		url: "http://maps.raleighnc.gov/arcgis/rest/services/Planning/UDO/MapServer",
 		layerIds: [0]
 	},
 	parcels: {
@@ -349,7 +349,7 @@ function getZoningCases (point, element) {
 					$(fs.results).each(function (i,f) {
 						info.current.overlays.push(f.attributes['Overlay District']);
 						if ($.inArray(f.attributes['Overlay District'], ["DOD","PBOD","PDD","SHOD-3","SHOD-4"]) === -1) {
-							if (f.attributes.OBJECTID === "1366") {
+							if (f.attributes.OBJECTID === "2965") {
 								f.attributes['Overlay District'] = "SHOD-1";
 							}
 							info.proposed.overlays.push(f.attributes['Overlay District']);
@@ -460,7 +460,7 @@ function getZoningCases (point, element) {
 		.done(function(data) {
 			$.ajax({
 				url: config.geometry.url + '/labelPoints',
-				type: 'GET',
+				type: 'POST',
 				dataType: 'json',
 				data: {f: 'json',
 					polygons: '[' + JSON.stringify(data.features[0].geometry) + ']',
@@ -743,7 +743,7 @@ function getZoningCases (point, element) {
 				}
 			}
 		});
-		feedbackLayer.addTo(proposed)
+		//feedbackLayer.addTo(proposed)
 	}
 
 	$("#closeWarning").click(function () {
@@ -766,7 +766,7 @@ function getZoningCases (point, element) {
 	var zoning = L.esri.dynamicMapLayer(config.udoService.url, {opacity: 0.50, layers:[0]}).addTo(current);
 	var udo = L.esri.dynamicMapLayer(config.udoService.url, {opacity: 0.50, layers: [1]}).addTo(proposed);
 	var overlayCurrent = L.esri.dynamicMapLayer(config.overlays.url, {opacity: 1});//.addTo(current);
-	var overlayProposed = L.esri.dynamicMapLayer(config.overlays.url, {opacity: 1, layers: [0,1,2,3,4,5,6,7,8,9,10,11,12]});//.addTo(proposed);
+	var overlayProposed = L.esri.dynamicMapLayer(config.udoService.url, {opacity: 1, layers: [3,4,5,6,7,8,9,10,11,12,13,14,15]});//.addTo(proposed);
 	locMarkersC = L.featureGroup().addTo(current);
 	locMarkersP = L.featureGroup().addTo(proposed);
 	var icons = [L.icon({

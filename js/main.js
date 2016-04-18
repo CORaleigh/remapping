@@ -1,6 +1,6 @@
 var config = {
 	feedbackLayer: {
-		url: "http://maps.raleighnc.gov/arcgis/rest/services/Planning/UDO_Feedback/FeatureServer/0"
+		url: "http://services.arcgis.com/v400IkDOw1ad7Yad/arcgis/rest/services/UDO_Feedback/FeatureServer/0"
 	},
 	udoService: {
 		url: "http://maps.raleighnc.gov/arcgis/rest/services/Planning/UDO/MapServer",
@@ -356,12 +356,12 @@ function getZoningCases (point, element) {
 						}
 					});
 				}
-				getZoningCases(point);				
+				getZoningCases(point);
 			} else {
 				$("#currentDesc").html("No information available");
 				$("#currentInfo").empty();
 				$("#proposedDesc").html("No information available");
-				$("#proposedInfo").empty();				
+				$("#proposedInfo").empty();
 			}
 		});
 	}
@@ -425,7 +425,7 @@ function getZoningCases (point, element) {
 		lastAction = "search";
 		_gaq.push(['_trackEvent', 'Search', type]);
 		getInfo(point);
-		setMapView(point);		
+		setMapView(point);
 	}
 	function searchByAddress (data) {
 		$.ajax({
@@ -472,8 +472,8 @@ function getZoningCases (point, element) {
 					var point = data.labelPoints[0];
 					displayPoint(point, 'PIN');
 				}
-			});				
-		});	
+			});
+		});
 	}
 
 	function typeaheadSelected (obj, data, dataset) {
@@ -531,18 +531,18 @@ function getZoningCases (point, element) {
 					return newUrl;
 				}
 			}
-		});	
+		});
 		addresses.initialize();
 		pin.initialize();
-		$("#searchInput").typeahead({hint: true, highlight: true, minLength: 1}, 
-			{name:'Addresses', 
-			displayKey:'value', 
+		$("#searchInput").typeahead({hint: true, highlight: true, minLength: 1},
+			{name:'Addresses',
+			displayKey:'value',
 			source:addresses.ttAdapter(),
 			templates: {
 				header: "<h5>Addresses</h5>"
 			}},
-			{name:'PIN', 
-			displayKey:'value', 
+			{name:'PIN',
+			displayKey:'value',
 			source:pin.ttAdapter(),
 			templates: {
 				header: "<h5>PIN</h5>"

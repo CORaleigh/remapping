@@ -514,7 +514,7 @@ function getZoningCases (point, element) {
 				filter: addressFilter,
 				replace: function(url, uriEncodedQuery) {
 				      var newUrl = url + '&where=ADDRESSU like ' + "'" + uriEncodedQuery.toUpperCase() +"%'";
-				      return newUrl;
+				      return encodeURI(newUrl);
 				}
 			}
 		});
@@ -528,7 +528,7 @@ function getZoningCases (point, element) {
 				filter: pinFilter,
 				replace: function (url, uriEncodedQuery) {
 					var newUrl = url + "&where=PIN_NUM LIKE '" + uriEncodedQuery + "%' OR PIN_NUM LIKE '0" + parseInt(uriEncodedQuery).toString() + "%'";
-					return newUrl;
+				     return encodeURI(newUrl);
 				}
 			}
 		});

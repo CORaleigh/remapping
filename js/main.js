@@ -387,7 +387,7 @@ function getZoningCases (point, element) {
 				info.proposed.frontage = atts.FRONTAGE;
 				info.proposed.type = atts.ZONE_TYPE;
 				info.proposed.height = atts.HEIGHT;
-				info.proposed.label = atts.LABEL;
+				info.proposed.label = atts.ZONING;
 				info.proposed.conditional = (atts.CONDITIONAL == "-CU")?true:false;
 			}
 			getOverlays(mapPoint);
